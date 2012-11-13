@@ -546,9 +546,9 @@ static inline CGGradientRef createGradientWithColors(NSColor *startingColor, NSC
     [nc addObserver:self selector:@selector(_updateTitlebarView) name:NSApplicationDidResignActiveNotification object:nil];
     #if IN_COMPILING_LION
     if (IN_RUNNING_LION) {
-        [nc addObserver:self selector:@selector(_setupTrafficLightsTrackingArea) name:NSWindowDidExitFullScreenNotification object:nil];
-        [nc addObserver:self selector:@selector(windowWillEnterFullScreen:) name:NSWindowWillEnterFullScreenNotification object:nil];
-        [nc addObserver:self selector:@selector(windowWillExitFullScreen:) name:NSWindowWillExitFullScreenNotification object:nil];
+        [nc addObserver:self selector:@selector(_setupTrafficLightsTrackingArea) name:@"NSWindowDidExitFullScreenNotification" object:nil];
+        [nc addObserver:self selector:@selector(windowWillEnterFullScreen:) name:@"NSWindowWillEnterFullScreenNotification" object:nil];
+        [nc addObserver:self selector:@selector(windowWillExitFullScreen:) name:@"NSWindowWillExitFullScreenNotification" object:nil];
     }
     #endif
     [self _createTitlebarView];
